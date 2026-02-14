@@ -6,94 +6,55 @@
     <title>Pour Toi ❤️</title>
     <style>
         body { 
-            background: #fffafa; /* Blanc cassé rosé très doux */
-            font-family: 'Georgia', serif;
-            color: #4a4a4a;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
+            background: #fffafa; font-family: 'Georgia', serif; color: #4a4a4a; margin: 0; padding: 0;
+            display: flex; flex-direction: column; align-items: center; min-height: 100vh;
         }
-
         .hidden { display: none !important; }
 
         /* Écran de Verrouillage */
         #lock-screen {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            width: 100%;
-            text-align: center;
-            background: #fffafa;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            height: 100vh; width: 100%; text-align: center;
         }
-        #lock-screen h2 { color: #ff8fa3; font-style: italic; margin-bottom: 20px; font-weight: normal; }
         input { 
             padding: 12px; border: 1px solid #ffcad4; border-radius: 25px; 
-            text-align: center; outline: none; margin-bottom: 15px; width: 180px;
-            font-family: 'Arial', sans-serif;
+            text-align: center; margin-bottom: 15px; width: 180px;
         }
         button { 
             background: #ff8fa3; color: white; border: none; padding: 10px 30px; 
-            border-radius: 25px; cursor: pointer; transition: 0.3s; font-family: 'Georgia', serif;
+            border-radius: 25px; cursor: pointer;
         }
-        button:hover { background: #ff758c; }
 
         /* Contenu Principal */
-        #main-content {
-            padding: 40px 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-        }
-
-        h1 { color: #ff8fa3; font-weight: normal; margin-bottom: 30px; font-style: italic; text-align: center; }
+        #main-content { padding: 40px 15px; display: flex; flex-direction: column; align-items: center; width: 100%; }
+        h1, h2 { color: #ff8fa3; font-weight: normal; font-style: italic; text-align: center; }
 
         .music-player {
-            background: white;
-            padding: 20px;
-            border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            margin-bottom: 50px;
-            text-align: center;
+            background: white; padding: 20px; border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 50px; text-align: center;
         }
         audio { height: 30px; margin: 5px 0; width: 250px; }
 
         .container { max-width: 650px; width: 100%; }
 
         .message {
-            background: white;
-            padding: 40px;
-            border-radius: 2px;
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.02);
-            line-height: 2;
-            margin: 40px 0;
-            border-top: 1px solid #eee;
-            position: relative;
+            background: white; padding: 40px; margin: 40px 0; line-height: 2;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.02); border-top: 1px solid #eee;
         }
-        .message::after { content: "❤️"; position: absolute; bottom: 10px; right: 20px; opacity: 0.3; }
 
-        .photo-frame {
-            width: 280px;
-            background: white;
-            padding: 15px 15px 40px 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            margin: 20px auto;
-            transition: transform 0.4s ease;
+        /* Photos et Vidéos */
+        .media-frame {
+            background: white; padding: 10px 10px 30px 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); margin: 20px auto;
+            transition: transform 0.4s; width: 280px;
         }
-        .photo-frame img { width: 100%; height: auto; display: block; filter: sepia(10%); }
+        .media-frame img, .media-frame video { width: 100%; display: block; }
         
-        .pos-left { transform: rotate(-3deg) translateX(-20px); }
-        .pos-right { transform: rotate(4deg) translateX(20px); }
+        .pos-left { transform: rotate(-3deg); }
+        .pos-right { transform: rotate(4deg); }
         .pos-center { transform: rotate(-1deg); }
 
-        .photo-frame:hover { transform: rotate(0deg) scale(1.05); z-index: 10; }
-
-        footer { margin-top: 60px; color: #ff8fa3; font-size: 0.8em; letter-spacing: 2px; padding-bottom: 40px; }
+        footer { margin-top: 60px; color: #ff8fa3; padding-bottom: 40px; }
     </style>
 </head>
 <body>
@@ -108,15 +69,15 @@
         <h1>Quelques mots pour toi...</h1>
 
         <div class="music-player">
-            <p style="font-size: 0.8em; color: #aaa; margin-bottom: 15px;">Écoute ceci en lisant...</p>
+            <p style="font-size: 0.8em; color: #aaa;">Lance une musique pour lire...</p>
             <audio controls><source src="Dave - Raindance (feat. Tems) - 7Cakes.mp3" type="audio/mpeg"></audio><br>
             <audio controls><source src="Part II (On The Run) ft. Beyonce - Jay Z - Bryan “DeMewi” Marwi.mp3" type="audio/mpeg"></audio>
         </div>
 
         <div class="container">
-            
-            <div class="photo-frame pos-left">
-                <img src="1.jpg" alt="Souvenir 1">
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+                <div class="media-frame pos-left"><img src="1.jpg"></div>
+                <div class="media-frame pos-right"><img src="2.jpg"></div>
             </div>
 
             <div class="message">
@@ -124,45 +85,45 @@
             </div>
 
             <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
-                <div class="photo-frame pos-right">
-                    <img src="2.jpg" alt="Souvenir 2">
-                </div>
-                <div class="photo-frame pos-center">
-                    <img src="3.jpg" alt="Souvenir 3">
-                </div>
+                <div class="media-frame pos-center"><img src="3.jpg"></div>
+                <div class="media-frame pos-left"><img src="4.jpg"></div>
             </div>
 
             <div class="message">
                 "Je ne sais pas ce que l’avenir nous réserve, mais une chose est certaine : je veux le vivre avec toi. Trois années ne sont qu’un début, et je promets de continuer à t’aimer, à te soutenir, et à partager chaque sourire, chaque rêve, chaque folie… Je t’aime plus que jamais, et je n’ai pas fini de te le dire"
             </div>
 
-            <div class="photo-frame pos-left" style="margin-bottom: 50px;">
-                <img src="4.jpg" alt="Souvenir 4">
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+                <div class="media-frame pos-right"><img src="birthday.jpg"></div>
+                <div class="media-frame pos-left"><img src="Oreiller.jpg"></div>
             </div>
 
+            <br><h2>Nos moments en mouvement...</h2>
+
+            <div class="media-frame pos-center" style="width: 80%;">
+                <video controls><source src="us.mp4" type="video/mp4"></video>
+            </div>
+            <div class="media-frame pos-right" style="width: 80%;">
+                <video controls><source src="maillot.mp4" type="video/mp4"></video>
+            </div>
+            <div class="media-frame pos-left" style="width: 80%;">
+                <video controls><source src="shrek.mp4" type="video/mp4"></video>
+            </div>
         </div>
 
-        <footer>À NOUS DEUX</footer>
+        <footer>À NOUS DEUX ❤️</footer>
     </div>
 
     <script>
         function unlock() {
-            const code = document.getElementById('passInput').value;
-            if (code === "2309") {
+            if (document.getElementById('passInput').value === "2309") {
                 document.getElementById('lock-screen').classList.add('hidden');
                 document.getElementById('main-content').classList.remove('hidden');
-            } else {
-                alert("Ce n'est pas le bon code... ❤️");
-            }
+            } else { alert("Ce n'est pas le bon code... ❤️"); }
         }
-        
-        // Permet de valider avec la touche Entrée du clavier
         document.getElementById('passInput').addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') {
-                unlock();
-            }
+            if (e.key === 'Enter') unlock();
         });
     </script>
-
 </body>
 </html>
