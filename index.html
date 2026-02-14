@@ -6,90 +6,76 @@
     <title>Pourmonchéri❤️</title>
     <style>
         body { 
-            background: #000000; /* Fond noir absolu */
-            font-family: 'Georgia', serif;
-            color: #e0e0e0;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
+            background: #000000; font-family: 'Georgia', serif; color: #e0e0e0;
+            margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center; min-height: 100vh;
         }
         .hidden { display: none !important; }
 
-        /* Écran de Verrouillage */
+        /* Écran 1 : Code Secret */
         #lock-screen {
             display: flex; flex-direction: column; justify-content: center; align-items: center;
-            height: 100vh; width: 100%; text-align: center;
-            background: #000;
+            height: 100vh; width: 100%; text-align: center; background: #000;
         }
         #lock-screen h2 { color: #ff4d6d; margin-bottom: 20px; font-weight: normal; }
         input { 
             padding: 12px; border: 1px solid #ff4d6d; border-radius: 25px; background: #1a1a1a;
             color: white; text-align: center; margin-bottom: 15px; width: 220px; outline: none;
         }
-        button { 
-            background: #ff4d6d; color: white; border: none; padding: 10px 30px; 
-            border-radius: 25px; cursor: pointer; font-weight: bold;
-        }
 
-        /* En-tête NOIR avec texte Rose/Rouge */
-        header {
-            text-align: center;
-            padding: 60px 20px;
-            width: 100%;
-            background: #000000; /* Modification ici : Fond Noir */
-            border-bottom: 1px solid #333; /* Petite ligne discrète pour séparer */
-            margin-bottom: 40px;
+        /* Écran 2 : Le Jeu de Cupidon */
+        #question-game {
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            height: 100vh; width: 100%; text-align: center; background: #000; padding: 20px;
         }
+        #question-game h2 { color: #ff4d6d; margin-bottom: 30px; font-weight: normal; font-size: 1.8em; line-height: 1.4; }
+        .btn-group { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+        
+        button { 
+            background: #ff4d6d; color: white; border: none; padding: 12px 30px; 
+            border-radius: 25px; cursor: pointer; font-weight: bold; transition: 0.3s;
+        }
+        button.secondary { background: #444; }
+        button:hover { transform: scale(1.1); background: #c9184a; }
+
+        /* Écran 3 : Contenu Principal */
+        header {
+            text-align: center; padding: 60px 20px; width: 100%; background: #000000;
+            border-bottom: 1px solid #333; margin-bottom: 40px;
+        }
+        .cupid-icon { font-size: 3em; margin-bottom: 10px; display: block; }
         header h1 { color: #ff4d6d; font-size: 2.8em; margin: 0; font-family: 'Brush Script MT', cursive; }
         header p { color: #ffb3c1; margin: 10px 0; font-style: italic; }
         .names { color: white; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9em; }
 
-        /* Contenu Principal */
         #main-content { padding-bottom: 60px; display: flex; flex-direction: column; align-items: center; width: 100%; }
 
         .music-player {
             background: #111111; padding: 20px; border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(255, 77, 109, 0.1); margin-bottom: 40px; text-align: center;
-            border: 1px solid #222;
+            box-shadow: 0 4px 15px rgba(255, 77, 109, 0.1); margin-bottom: 40px; text-align: center; border: 1px solid #222;
         }
         audio { height: 35px; filter: invert(100%) hue-rotate(180deg) brightness(1.5); }
 
         .container { max-width: 650px; width: 100%; }
-
         .message {
             background: #0a0a0a; padding: 35px; margin: 40px 10px; line-height: 1.8;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5); border-radius: 10px;
-            border-left: 4px solid #ff4d6d; color: #bbb;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5); border-radius: 10px; border-left: 4px solid #ff4d6d; color: #bbb;
         }
 
-        /* Effet Photo avec SCOTCH */
         .media-frame {
             background: #ffffff; padding: 10px 10px 35px 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8); margin: 45px auto;
-            transition: transform 0.4s; width: 280px; position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8); margin: 45px auto; transition: transform 0.4s; width: 280px; position: relative;
         }
-        
         .media-frame::before {
-            content: "";
-            position: absolute;
-            top: -12px; left: 50%; transform: translateX(-50%);
-            width: 90px; height: 25px;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(2px);
-            z-index: 2;
+            content: ""; position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+            width: 90px; height: 25px; background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(2px); z-index: 2;
         }
-
         .media-frame img, .media-frame video { width: 100%; display: block; }
-        
         .pos-left { transform: rotate(-3deg); }
         .pos-right { transform: rotate(4deg); }
         .pos-center { transform: rotate(-1deg); }
 
         h2 { color: #ff4d6d; font-style: italic; margin-top: 60px; text-align: center; }
-        footer { margin-top: 80px; color: #333; font-size: 0.8em; letter-spacing: 3px; }
+        footer { margin-top: 80px; color: #333; font-size: 0.8em; letter-spacing: 3px; padding-bottom: 40px; }
     </style>
 </head>
 <body>
@@ -97,7 +83,33 @@
     <div id="lock-screen">
         <h2>Accès Réservé à mon Doudou</h2>
         <input type="password" id="passInput" placeholder="Mot de passe secret">
-        <button onclick="unlock()">Entrer</button>
+        <button onclick="checkCode()">Entrer</button>
+    </div>
+
+    <div id="question-game" class="hidden">
+        <div id="step1">
+            <h2>D'abord, une petite question... <br>Veux-tu être mon Valentin ? ❤️</h2>
+            <div class="btn-group">
+                <button onclick="revealSite()">OUI</button>
+                <button class="secondary" onclick="nextStep(2)">NON</button>
+            </div>
+        </div>
+
+        <div id="step2" class="hidden">
+            <h2>Réfléchis bien... <br>Tu es vraiment sûre ? 🤔</h2>
+            <div class="btn-group">
+                <button onclick="revealSite()">OUI</button>
+                <button class="secondary" onclick="nextStep(3)">NON</button>
+            </div>
+        </div>
+
+        <div id="step3" class="hidden">
+            <h2>Réponse irrecevable ! 🙅‍♂️<br><span style="font-size: 0.7em; color: #aaa;">Le destin a déjà choisi.</span></h2>
+            <div class="btn-group">
+                <button onclick="revealSite()">OUI</button>
+                <button onclick="revealSite()">OH QUE OUI !</button>
+            </div>
+        </div>
     </div>
 
     <div id="main-content" class="hidden">
@@ -109,9 +121,7 @@
         </header>
 
         <div class="music-player">
-            <p style="font-size: 0.95em; color: #ffb3c1; margin-bottom: 15px; font-style: italic;">
-                "Lance une mélodie... Les mots ici ont autant de sens que nos souvenirs.❤️"
-            </p>
+            <p>"Lance une mélodie... Les mots ici ont autant de sens que nos souvenirs.❤️"</p>
             <audio controls><source src="Dave - Raindance (feat. Tems) - 7Cakes.mp3" type="audio/mpeg"></audio><br>
             <audio controls><source src="Part II (On The Run) ft. Beyonce - Jay Z - Bryan “DeMewi” Marwi.mp3" type="audio/mpeg"></audio>
         </div>
@@ -143,19 +153,13 @@
             <h2>Nos souvenirs en vidéo...</h2>
 
             <div class="media-frame pos-center" style="width: 85%;">
-                <video controls preload="metadata">
-                    <source src="us.MP4" type="video/mp4">
-                </video>
+                <video controls preload="metadata"><source src="us.MP4" type="video/mp4"></video>
             </div>
             <div class="media-frame pos-right" style="width: 85%;">
-                <video controls preload="metadata">
-                    <source src="maillot.MP4" type="video/mp4">
-                </video>
+                <video controls preload="metadata"><source src="maillot.MP4" type="video/mp4"></video>
             </div>
             <div class="media-frame pos-left" style="width: 85%;">
-                <video controls preload="metadata">
-                    <source src="shrek.MP4" type="video/mp4">
-                </video>
+                <video controls preload="metadata"><source src="shrek.MP4" type="video/mp4"></video>
             </div>
         </div>
 
@@ -163,14 +167,27 @@
     </div>
 
     <script>
-        function unlock() {
+        function checkCode() {
             if (document.getElementById('passInput').value === "2309") {
                 document.getElementById('lock-screen').classList.add('hidden');
-                document.getElementById('main-content').classList.remove('hidden');
+                document.getElementById('question-game').classList.remove('hidden');
             } else { alert("Ce n'est pas le bon code... ❤️"); }
         }
+
+        function nextStep(step) {
+            document.getElementById('step1').classList.add('hidden');
+            document.getElementById('step2').classList.add('hidden');
+            document.getElementById('step3').classList.add('hidden');
+            document.getElementById('step' + step).classList.remove('hidden');
+        }
+
+        function revealSite() {
+            document.getElementById('question-game').classList.add('hidden');
+            document.getElementById('main-content').classList.remove('hidden');
+        }
+
         document.getElementById('passInput').addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') unlock();
+            if (e.key === 'Enter') checkCode();
         });
     </script>
 </body>
