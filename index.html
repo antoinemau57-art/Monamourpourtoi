@@ -3,11 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pour Toi ❤️</title>
+    <title>Notre Histoire d'Amour ❤️</title>
     <style>
         body { 
-            background: #fffafa; font-family: 'Georgia', serif; color: #4a4a4a; margin: 0; padding: 0;
-            display: flex; flex-direction: column; align-items: center; min-height: 100vh;
+            background: #ffebf0; /* Fond rose très clair */
+            font-family: 'Georgia', serif;
+            color: #4a4a4a;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
         }
         .hidden { display: none !important; }
 
@@ -15,61 +22,101 @@
         #lock-screen {
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             height: 100vh; width: 100%; text-align: center;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
         }
+        #lock-screen h2 { color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
         input { 
-            padding: 12px; border: 1px solid #ffcad4; border-radius: 25px; 
-            text-align: center; margin-bottom: 15px; width: 180px;
+            padding: 12px; border: 2px solid #ff8fa3; border-radius: 25px; 
+            text-align: center; margin-bottom: 15px; width: 250px; outline: none;
         }
         button { 
-            background: #ff8fa3; color: white; border: none; padding: 10px 30px; 
-            border-radius: 25px; cursor: pointer;
+            background: #ff4d6d; color: white; border: none; padding: 10px 30px; 
+            border-radius: 25px; cursor: pointer; font-weight: bold; transition: 0.3s;
         }
+        button:hover { background: #c9184a; transform: scale(1.05); }
+
+        /* En-tête (Header) */
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            width: 100%;
+            background-color: #ffc2d1;
+            background-image: url("https://www.transparenttextures.com/patterns/cuisital.png"); /* Texture légère */
+            margin-bottom: 30px;
+        }
+        header h1 { color: #ff4d6d; font-size: 2.5em; margin: 0; font-family: 'Brush Script MT', cursive; }
+        header p { color: #ff758c; font-style: italic; margin: 10px 0; }
+        .names { color: #c9184a; font-weight: bold; letter-spacing: 1px; }
 
         /* Contenu Principal */
-        #main-content { padding: 40px 15px; display: flex; flex-direction: column; align-items: center; width: 100%; }
-        h1, h2 { color: #ff8fa3; font-weight: normal; font-style: italic; text-align: center; }
+        #main-content { padding-bottom: 40px; display: flex; flex-direction: column; align-items: center; width: 100%; }
 
         .music-player {
-            background: white; padding: 20px; border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 50px; text-align: center;
+            background: white; padding: 20px; border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(255, 77, 109, 0.2); margin-bottom: 40px; text-align: center;
+            border: 2px solid #ffb3c1;
         }
-        audio { height: 30px; margin: 5px 0; width: 250px; }
+        audio { height: 35px; margin: 5px 0; }
 
         .container { max-width: 650px; width: 100%; }
 
         .message {
-            background: white; padding: 40px; margin: 40px 0; line-height: 2;
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.02); border-top: 1px solid #eee;
+            background: white; padding: 35px; margin: 40px 10px; line-height: 1.8;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-radius: 10px;
+            border-left: 5px solid #ff4d6d;
+            font-size: 1.1em;
         }
 
-        /* Photos et Vidéos */
+        /* Effet Photo avec SCOTCH */
         .media-frame {
-            background: white; padding: 10px 10px 30px 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08); margin: 20px auto;
+            background: white; padding: 12px 12px 35px 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1); margin: 40px auto;
             transition: transform 0.4s; width: 280px;
+            position: relative; /* Pour positionner le scotch */
         }
+        
+        /* Le Scotch */
+        .media-frame::before {
+            content: "";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            backdrop-filter: blur(1px);
+            z-index: 2;
+        }
+
         .media-frame img, .media-frame video { width: 100%; display: block; border-radius: 2px; }
         
         .pos-left { transform: rotate(-3deg); }
         .pos-right { transform: rotate(4deg); }
         .pos-center { transform: rotate(-1deg); }
 
-        footer { margin-top: 60px; color: #ff8fa3; padding-bottom: 40px; }
+        h2 { color: #ff4d6d; font-style: italic; margin-top: 50px; }
+        footer { margin-top: 60px; color: #ff758c; font-weight: bold; }
     </style>
 </head>
 <body>
 
     <div id="lock-screen">
-        <h2>Un petit secret pour toi...</h2>
-        <input type="password" id="passInput" placeholder="Notre code secret">
-        <button onclick="unlock()">Ouvrir</button>
+        <h2>Entrer le code secret ❤️</h2>
+        <input type="password" id="passInput" placeholder="Nul n'entre ici s'il n'est mon doudou">
+        <button onclick="unlock()">Ouvrir mon cœur</button>
     </div>
 
     <div id="main-content" class="hidden">
-        <h1>Quelques mots pour toi...</h1>
+        <header>
+            <h1>Notre Histoire d'Amour</h1>
+            <p>Chaque photo raconte notre histoire ❤️</p>
+            <div class="names">Gyrel & Chabrell</div>
+        </header>
 
         <div class="music-player">
-            <p style="font-size: 0.8em; color: #aaa;">Lance une musique pour lire...</p>
+            <p style="font-size: 0.9em; color: #ff758c; margin-bottom: 10px; font-weight: bold;">Laisse la musique t'accompagner...</p>
             <audio controls><source src="Dave - Raindance (feat. Tems) - 7Cakes.mp3" type="audio/mpeg"></audio><br>
             <audio controls><source src="Part II (On The Run) ft. Beyonce - Jay Z - Bryan “DeMewi” Marwi.mp3" type="audio/mpeg"></audio>
         </div>
@@ -95,22 +142,22 @@
 
             <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
                 <div class="media-frame pos-right"><img src="birthday.jpg"></div>
-                <div class="media-frame pos-left"><img src="Oreiller .jpg"></div>
+                <div class="media-frame pos-left"><img src="Oreiller.jpg"></div>
             </div>
 
-            <br><h2>Nos moments en mouvement...</h2>
+            <h2>Nos moments en mouvement...</h2>
 
-            <div class="media-frame pos-center" style="width: 80%;">
+            <div class="media-frame pos-center" style="width: 85%;">
                 <video controls preload="metadata">
                     <source src="us.MP4" type="video/mp4">
                 </video>
             </div>
-            <div class="media-frame pos-right" style="width: 80%;">
+            <div class="media-frame pos-right" style="width: 85%;">
                 <video controls preload="metadata">
                     <source src="maillot.MP4" type="video/mp4">
                 </video>
             </div>
-            <div class="media-frame pos-left" style="width: 80%;">
+            <div class="media-frame pos-left" style="width: 85%;">
                 <video controls preload="metadata">
                     <source src="shrek.MP4" type="video/mp4">
                 </video>
