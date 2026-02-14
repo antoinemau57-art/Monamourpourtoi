@@ -6,9 +6,9 @@
     <title>Notre Histoire d'Amour ❤️</title>
     <style>
         body { 
-            background: #ffebf0; /* Fond rose très clair */
+            background: #0a0a0a; /* Fond noir profond */
             font-family: 'Georgia', serif;
-            color: #4a4a4a;
+            color: #e0e0e0;
             margin: 0;
             padding: 0;
             display: flex;
@@ -22,9 +22,9 @@
         #lock-screen {
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             height: 100vh; width: 100%; text-align: center;
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            background: #000;
         }
-        #lock-screen h2 { color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
+        #lock-screen h2 { #ff4d6d; margin-bottom: 20px; font-weight: normal; }
         input { 
             padding: 12px; border: 2px solid #ff8fa3; border-radius: 25px; 
             text-align: center; margin-bottom: 15px; width: 250px; outline: none;
@@ -38,85 +38,79 @@
         /* En-tête (Header) */
         header {
             text-align: center;
-            padding: 50px 20px;
+            padding: 60px 20px;
             width: 100%;
-            background-color: #ffc2d1;
+            background-color: linear-gradient(to bottom, #ff4d6d, #c9184a);
             background-image: url("https://www.transparenttextures.com/patterns/cuisital.png"); /* Texture légère */
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
-        header h1 { color: #ff4d6d; font-size: 2.5em; margin: 0; font-family: 'Brush Script MT', cursive; }
-        header p { color: #ff758c; font-style: italic; margin: 10px 0; }
-        .names { color: #c9184a; font-weight: bold; letter-spacing: 1px; }
-
-        /* Contenu Principal */
-        #main-content { padding-bottom: 40px; display: flex; flex-direction: column; align-items: center; width: 100%; }
+        header h1 { color: white; font-size: 2.5em; margin: 0; font-family: 'Brush Script MT', cursive; }
+        header p { color: #ffb3c1; margin: 10px 0; }
+        .names { color: white; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9em; }
+/* Contenu Principal */
+        #main-content { padding-bottom: 60px; display: flex; flex-direction: column; align-items: center; width: 100%; }
 
         .music-player {
-            background: white; padding: 20px; border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(255, 77, 109, 0.2); margin-bottom: 40px; text-align: center;
-            border: 2px solid #ffb3c1;
+            background: #1a1a1a; padding: 20px; border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(255, 77, 109, 0.1); margin-bottom: 40px; text-align: center;
+            border: 1px solid #333;
         }
-        audio { height: 35px; margin: 5px 0; }
+        audio { height: 35px; filter: invert(100%) hue-rotate(180deg) brightness(1.5); } /* Rend le lecteur plus visible sur noir */
 
         .container { max-width: 650px; width: 100%; }
 
         .message {
-            background: white; padding: 35px; margin: 40px 10px; line-height: 1.8;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-radius: 10px;
-            border-left: 5px solid #ff4d6d;
-            font-size: 1.1em;
+            background: #151515; padding: 35px; margin: 40px 10px; line-height: 1.8;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5); border-radius: 10px;
+            border-left: 4px solid #ff4d6d; color: #ccc;
         }
 
         /* Effet Photo avec SCOTCH */
         .media-frame {
-            background: white; padding: 12px 12px 35px 12px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1); margin: 40px auto;
-            transition: transform 0.4s; width: 280px;
-            position: relative; /* Pour positionner le scotch */
+            background: #fff; padding: 10px 10px 35px 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); margin: 45px auto;
+            transition: transform 0.4s; width: 280px; position: relative;
         }
         
         /* Le Scotch */
         .media-frame::before {
             content: "";
             position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 30px;
-            background: rgba(255, 255, 255, 0.5);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            backdrop-filter: blur(1px);
+            top: -12px; left: 50%; transform: translateX(-50%);
+            width: 90px; height: 25px;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(2px);
+            border: 1px solid rgba(255,255,255,0.1);
             z-index: 2;
         }
 
-        .media-frame img, .media-frame video { width: 100%; display: block; border-radius: 2px; }
+        .media-frame img, .media-frame video { width: 100%; display: block; filter: contrast(1.1); }
+        .media-frame p { color: #000; font-size: 0.8em; margin: 10px 0 0 0; text-align: center; font-style: italic; }
         
         .pos-left { transform: rotate(-3deg); }
         .pos-right { transform: rotate(4deg); }
         .pos-center { transform: rotate(-1deg); }
 
-        h2 { color: #ff4d6d; font-style: italic; margin-top: 50px; }
-        footer { margin-top: 60px; color: #ff758c; font-weight: bold; }
+        h2 { color: #ff4d6d; font-style: italic; margin-top: 60px; }
+        footer { margin-top: 80px; color: #444; font-size: 0.8em; letter-spacing: 3px; }
     </style>
 </head>
 <body>
 
     <div id="lock-screen">
-        <h2>Entrer le code secret ❤️</h2>
-        <input type="password" id="passInput" placeholder="Nul n'entre ici s'il n'est mon doudou">
-        <button onclick="unlock()">Ouvrir mon cœur</button>
+        <h2>Accès Réservé ❤️</h2>
+        <input type="password" id="passInput" placeholder="Mot de passe secret">
+        <button onclick="unlock()">Entrer</button>
     </div>
 
     <div id="main-content" class="hidden">
         <header>
-            <h1>WELCOME Doudou d'Amour</h1>
-            <p>Chaque photo raconte notre histoire ❤️</p>
-            <div class="names">Loïc & Maureen</div>
+            <h1>Notre Histoire d'Amour</h1>
+            <p>Chaque instant avec toi est un cadeau</p>
+            <div class="names">Gyrel & Chabrell</div>
         </header>
 
         <div class="music-player">
-            <p style="font-size: 0.9em; color: #ff758c; margin-bottom: 10px; font-weight: bold;">Laisse la musique t'accompagner...</p>
             <audio controls><source src="Dave - Raindance (feat. Tems) - 7Cakes.mp3" type="audio/mpeg"></audio><br>
             <audio controls><source src="Part II (On The Run) ft. Beyonce - Jay Z - Bryan “DeMewi” Marwi.mp3" type="audio/mpeg"></audio>
         </div>
@@ -142,10 +136,10 @@
 
             <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
                 <div class="media-frame pos-right"><img src="birthday.jpg"></div>
-                <div class="media-frame pos-left"><img src="Oreiller .jpg"></div>
+                <div class="media-frame pos-left"><img src="Oreiller.jpg"></div>
             </div>
 
-            <h2>Nos moments en mouvement...</h2>
+            <h2 style="text-align: center;">Nos souvenirs en vidéo...</h2>
 
             <div class="media-frame pos-center" style="width: 85%;">
                 <video controls preload="metadata">
@@ -180,3 +174,4 @@
     </script>
 </body>
 </html>
+        
