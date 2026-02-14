@@ -3,50 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pour Mon Amour</title>
+    <title>Pour Toi ❤️</title>
     <style>
-        body { font-family: 'Arial', sans-serif; background: #fff0f5; text-align: center; color: #d63384; }
-        .hidden { display: none; }
-        .photo-card { margin: 20px; border: 5px solid white; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 10px; padding: 10px; display: inline-block; background: white; }
-        img { max-width: 300px; border-radius: 5px; }
-        .love-note { font-style: italic; color: #ff4d6d; margin-top: 10px; }
-        button { background: #ff4d6d; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; }
+        body { 
+            background: #fffafa; /* Blanc cassé rosé très doux */
+            font-family: 'Georgia', serif;
+            color: #4a4a4a;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .hidden { display: none !important; }
+
+        /* Écran de Verrouillage */
+        #lock-screen {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100%;
+            text-align: center;
+            background: #fffafa;
+        }
+        #lock-screen h2 { color: #ff8fa3; font-style: italic; margin-bottom: 20px; font-weight: normal; }
+        input { 
+            padding: 12px; border: 1px solid #ffcad4; border-radius: 25px; 
+            text-align: center; outline: none; margin-bottom: 15px; width: 180px;
+            font-family: 'Arial', sans-serif;
+        }
+        button { 
+            background: #ff8fa3; color: white; border: none; padding: 10px 30px; 
+            border-radius: 25px; cursor: pointer; transition: 0.3s; font-family: 'Georgia', serif;
+        }
+        button:hover { background: #ff758c; }
+
+        /* Contenu Principal */
+        #main-content {
+            padding: 40px 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        h1 { color: #ff8fa3; font-weight: normal; margin-bottom: 30px; font-style: italic; text-align: center; }
+
+        .music-player {
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        audio { height: 30px; margin: 5px 0; width: 250px; }
+
+        .container { max-width: 650px; width: 100%; }
+
+        .message {
+            background: white;
+            padding: 40px;
+            border-radius: 2px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.02);
+            line-height: 2;
+            margin: 40px 0;
+            border-top: 1px solid #eee;
+            position: relative;
+        }
+        .message::after { content: "❤️"; position: absolute; bottom: 10px; right: 20px; opacity: 0.3; }
+
+        .photo-frame {
+            width: 280px;
+            background: white;
+            padding: 15px 15px 40px 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin: 20px auto;
+            transition: transform 0.4s ease;
+        }
+        .photo-frame img { width: 100%; height: auto; display: block; filter: sepia(10%); }
+        
+        .pos-left { transform: rotate(-3deg) translateX(-20px); }
+        .pos-right { transform: rotate(4deg) translateX(20px); }
+        .pos-center { transform: rotate(-1deg); }
+
+        .photo-frame:hover { transform: rotate(0deg) scale(1.05); z-index: 10; }
+
+        footer { margin-top: 60px; color: #ff8fa3; font-size: 0.8em; letter-spacing: 2px; padding-bottom: 40px; }
     </style>
 </head>
 <body>
 
-    <div id="login-section">
-        <h1>Coucou toi... ❤️</h1>
-        <p>Entre notre code secret pour entrer :</p>
-        <input type="password" id="passwordInput" placeholder="Le code...">
-        <button onclick="checkPassword()">Entrer</button>
+    <div id="lock-screen">
+        <h2>Un petit secret pour toi...</h2>
+        <input type="password" id="passInput" placeholder="Notre code secret">
+        <button onclick="unlock()">Ouvrir</button>
     </div>
 
-    <div id="secret-content" class="hidden">
-        <h1>Bienvenue dans notre jardin secret</h1>
-        <p>Chaque photo a un petit bout de mon cœur (et une musique !)</p>
+    <div id="main-content" class="hidden">
+        <h1>Quelques mots pour toi...</h1>
 
-        <div class="photo-card">
-            <img src="ton-image-1.jpg" alt="Nous deux">
-            <p class="love-note">"Ce jour-là, j'ai su que c'était toi..."</p>
-            <audio controls>
-                <source src="sa-musique-preferee-1.mp3" type="audio/mpeg">
-                Ton navigateur ne supporte pas l'audio.
-            </audio>
+        <div class="music-player">
+            <p style="font-size: 0.8em; color: #aaa; margin-bottom: 15px;">Écoute ceci en lisant...</p>
+            <audio controls><source src="Dave - Raindance (feat. Tems) - 7Cakes.mp3" type="audio/mpeg"></audio><br>
+            <audio controls><source src="Part II (On The Run) ft. Beyonce - Jay Z - Bryan “DeMewi” Marwi.mp3" type="audio/mpeg"></audio>
         </div>
 
+        <div class="container">
+            
+            <div class="photo-frame pos-left">
+                <img src="1.jpg" alt="Souvenir 1">
+            </div>
+
+            <div class="message">
+                "C’est étrange comme certaines personnes peuvent illuminer nos journées sans même le savoir. chaque jour à tes côtés me rappelle combien notre lien est précieux. Il y a dans notre quotidien des moments simples, des éclats de rire, des silences partagés, qui me rappellent que je ne me lasse pas de nous."
+            </div>
+
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+                <div class="photo-frame pos-right">
+                    <img src="2.jpg" alt="Souvenir 2">
+                </div>
+                <div class="photo-frame pos-center">
+                    <img src="3.jpg" alt="Souvenir 3">
+                </div>
+            </div>
+
+            <div class="message">
+                "Je ne sais pas ce que l’avenir nous réserve, mais une chose est certaine : je veux le vivre avec toi. Trois années ne sont qu’un début, et je promets de continuer à t’aimer, à te soutenir, et à partager chaque sourire, chaque rêve, chaque folie… Je t’aime plus que jamais, et je n’ai pas fini de te le dire"
+            </div>
+
+            <div class="photo-frame pos-left" style="margin-bottom: 50px;">
+                <img src="4.jpg" alt="Souvenir 4">
+            </div>
+
         </div>
+
+        <footer>À NOUS DEUX</footer>
+    </div>
 
     <script>
-        function checkPassword() {
-            const mdp = document.getElementById('passwordInput').value;
-            if (mdp === "2309") {
-                document.getElementById('login-section').classList.add('hidden');
-                document.getElementById('secret-content').classList.remove('hidden');
+        function unlock() {
+            const code = document.getElementById('passInput').value;
+            if (code === "2309") {
+                document.getElementById('lock-screen').classList.add('hidden');
+                document.getElementById('main-content').classList.remove('hidden');
             } else {
-                alert("Oups ! Ce n'est pas le bon code...");
+                alert("Ce n'est pas le bon code... ❤️");
             }
         }
+        
+        // Permet de valider avec la touche Entrée du clavier
+        document.getElementById('passInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                unlock();
+            }
+        });
     </script>
+
 </body>
 </html>
