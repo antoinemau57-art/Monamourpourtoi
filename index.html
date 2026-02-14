@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pour toi ❤️</title>
+    <style>
+        body {
+            background-color: #111;
+            color: white;
+            text-align: center;
+            font-family: Arial;
+            padding: 50px;
+        }
+        img {
+            width: 300px;
+            border-radius: 20px;
+            margin: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: pink;
+            border: none;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Pour toi, mon amour 💌</h1>
+
+<p>Ce site est réservé à une seule personne.</p>
+
+<button onclick="enter()">Entrer</button>
+
+<div id="secret" style="display:none;">
+    <h2>Joyeuse Saint-Valentin ❤️</h2>
+    <p>Depuis que je t’ai rencontré, ma vie est plus douce.</p>
+    <p>Je te choisirais encore et encore.</p>
+</div>
+
+<script>
+function enter() {
+    document.getElementById("secret").style.display = "block";
+}
+</script>
+
+</body>
+</html>
