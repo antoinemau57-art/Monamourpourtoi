@@ -1,48 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <title>Pour toi ❤️</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pour Mon Amour</title>
     <style>
-        body {
-            background-color: #111;
-            color: white;
-            text-align: center;
-            font-family: Arial;
-            padding: 50px;
-        }
-        img {
-            width: 300px;
-            border-radius: 20px;
-            margin: 20px;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 18px;
-            background-color: pink;
-            border: none;
-            border-radius: 10px;
-        }
+        body { font-family: 'Arial', sans-serif; background: #fff0f5; text-align: center; color: #d63384; }
+        .hidden { display: none; }
+        .photo-card { margin: 20px; border: 5px solid white; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 10px; padding: 10px; display: inline-block; background: white; }
+        img { max-width: 300px; border-radius: 5px; }
+        .love-note { font-style: italic; color: #ff4d6d; margin-top: 10px; }
+        button { background: #ff4d6d; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; }
     </style>
 </head>
 <body>
 
-<h1>Pour toi, mon amour 💌</h1>
+    <div id="login-section">
+        <h1>Coucou toi... ❤️</h1>
+        <p>Entre notre code secret pour entrer :</p>
+        <input type="password" id="passwordInput" placeholder="Le code...">
+        <button onclick="checkPassword()">Entrer</button>
+    </div>
 
-<p>Ce site est réservé à une seule personne.</p>
+    <div id="secret-content" class="hidden">
+        <h1>Bienvenue dans notre jardin secret</h1>
+        <p>Chaque photo a un petit bout de mon cœur (et une musique !)</p>
 
-<button onclick="enter()">Entrer</button>
+        <div class="photo-card">
+            <img src="ton-image-1.jpg" alt="Nous deux">
+            <p class="love-note">"Ce jour-là, j'ai su que c'était toi..."</p>
+            <audio controls>
+                <source src="sa-musique-preferee-1.mp3" type="audio/mpeg">
+                Ton navigateur ne supporte pas l'audio.
+            </audio>
+        </div>
 
-<div id="secret" style="display:none;">
-    <h2>Joyeuse Saint-Valentin ❤️</h2>
-    <p>Depuis que je t’ai rencontré, ma vie est plus douce.</p>
-    <p>Je te choisirais encore et encore.</p>
-</div>
+        </div>
 
-<script>
-function enter() {
-    document.getElementById("secret").style.display = "block";
-}
-</script>
-
+    <script>
+        function checkPassword() {
+            const mdp = document.getElementById('passwordInput').value;
+            if (mdp === "2309") {
+                document.getElementById('login-section').classList.add('hidden');
+                document.getElementById('secret-content').classList.remove('hidden');
+            } else {
+                alert("Oups ! Ce n'est pas le bon code...");
+            }
+        }
+    </script>
 </body>
 </html>
